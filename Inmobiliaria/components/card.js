@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Card = () => {
   const img = {
@@ -7,10 +8,26 @@ const Card = () => {
   };
   return (
     <View style={style.container}>
-      <Image source={img} style={style.image} />
-      <Text style={style.title}>This is a Card</Text>
-      <Text>This is a Card</Text>
-      <Text>This is a Card</Text>
+      <ImageBackground
+        source={img}
+        style={style.image}
+        imageStyle={style.imageView}>
+        <View style={style.calificationView}>
+          <Icon name="star" size={15} color="#EEBA00" />
+          <Text style={style.calification}>4.7</Text>
+        </View>
+      </ImageBackground>
+      <View style={style.infoSection}>
+        <View style={style.titleView}>
+          <Text style={style.title}>The Willows</Text>
+        </View>
+        <View style={style.directionView}>
+          <Icon name="location-on" size={25} color="black" />
+          <Text style={style.direction}>3517 W. Gray St. Utica</Text>
+        </View>
+
+        <Text style={style.title}>This is a Card</Text>
+      </View>
     </View>
   );
 };
@@ -19,20 +36,50 @@ const style = StyleSheet.create({
   container: {
     backgroundColor: '#F5FDFF',
     width: '90%',
-    alignItems: 'center',
-    marginVertical: 20,
+    marginTop: 20,
     borderRadius: 10,
     flexDirection: 'row',
-    padding: 15,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+  },
+  calification: {
+    color: '#7A6229',
+    fontFamily: 'Poppins-Regular',
+    fontWeight: '600',
+  },
+  calificationView: {
+    backgroundColor: '#FBEDB7',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginHorizontal: '20%',
+    alignItems: 'center',
+    borderRadius: 7,
   },
   title: {
     color: '#151525',
     fontWeight: '500',
     fontFamily: 'Poppins-Regular',
   },
+  titleView: {
+    paddingBottom: 5,
+  },
+  direction: {
+    color: '#737373',
+  },
+  directionView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   image: {
-    width: 40,
-    height: 40,
+    width: 85,
+    height: 90,
+    flexDirection: 'column-reverse',
+  },
+  imageView: {
+    borderRadius: 10,
+  },
+  infoSection: {
+    paddingLeft: 20,
   },
 });
 
