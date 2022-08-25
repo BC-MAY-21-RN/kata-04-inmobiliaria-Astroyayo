@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Card from './components/card.js';
+import {StyleSheet, View} from 'react-native';
+import {Card} from './components/';
 
 const App = () => {
   return (
