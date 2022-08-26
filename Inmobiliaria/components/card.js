@@ -1,6 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, ImageBackground} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faStar} from '@fortawesome/free-solid-svg-icons/faStar';
+import {faBed} from '@fortawesome/free-solid-svg-icons/faBed';
+import {faLocationDot} from '@fortawesome/free-solid-svg-icons/faLocationDot';
+import {faBath} from '@fortawesome/free-solid-svg-icons/faBath';
+import {faVectorSquare} from '@fortawesome/free-solid-svg-icons/faVectorSquare';
 
 const Card = () => {
   const img = {
@@ -13,7 +19,7 @@ const Card = () => {
         style={style.image}
         imageStyle={style.imageView}>
         <View style={style.calificationView}>
-          <Icon name="star" size={15} color="#EEBA00" />
+          <FontAwesomeIcon icon={faStar} color={'#EEBA00'} />
           <Text style={style.calification}>4.7</Text>
         </View>
       </ImageBackground>
@@ -22,8 +28,16 @@ const Card = () => {
           <Text style={style.title}>The Willows</Text>
         </View>
         <View style={style.directionView}>
-          <Icon name="location-on" size={25} color="black" />
+          <FontAwesomeIcon icon={faLocationDot} color={'black'} />
           <Text style={style.direction}>3517 W. Gray St. Utica</Text>
+        </View>
+        <View style={style.detailsView}>
+          <FontAwesomeIcon icon={faBed} color={'grey'} />
+          <Text style={style.direction}>3</Text>
+          <FontAwesomeIcon icon={faBath} color={'grey'} />
+          <Text style={style.direction}>5</Text>
+          <FontAwesomeIcon icon={faVectorSquare} color={'grey'} />
+          <Text style={style.direction}>351 ft2</Text>
         </View>
 
         <Text style={style.title}>This is a Card</Text>
@@ -45,7 +59,8 @@ const style = StyleSheet.create({
   calification: {
     color: '#7A6229',
     fontFamily: 'Poppins-Regular',
-    fontWeight: '600',
+    fontWeight: '800',
+    fontSize: 12,
   },
   calificationView: {
     backgroundColor: '#FBEDB7',
@@ -54,10 +69,11 @@ const style = StyleSheet.create({
     marginHorizontal: '20%',
     alignItems: 'center',
     borderRadius: 7,
+    marginVertical: 10,
   },
   title: {
     color: '#151525',
-    fontWeight: '500',
+    fontWeight: '600',
     fontFamily: 'Poppins-Regular',
   },
   titleView: {
@@ -69,6 +85,12 @@ const style = StyleSheet.create({
   directionView: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  detailsView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingTop: 5,
   },
   image: {
     width: 85,
