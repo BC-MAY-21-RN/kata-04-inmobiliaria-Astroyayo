@@ -7,6 +7,7 @@ import {faBed} from '@fortawesome/free-solid-svg-icons/faBed';
 import {faLocationDot} from '@fortawesome/free-solid-svg-icons/faLocationDot';
 import {faBath} from '@fortawesome/free-solid-svg-icons/faBath';
 import {faVectorSquare} from '@fortawesome/free-solid-svg-icons/faVectorSquare';
+import {faHeartCirclePlus} from '@fortawesome/free-solid-svg-icons/faHeartCirclePlus';
 
 const Card = () => {
   const img = {
@@ -32,15 +33,17 @@ const Card = () => {
           <Text style={style.direction}>3517 W. Gray St. Utica</Text>
         </View>
         <View style={style.detailsView}>
-          <FontAwesomeIcon icon={faBed} color={'grey'} />
-          <Text style={style.direction}>3</Text>
-          <FontAwesomeIcon icon={faBath} color={'grey'} />
-          <Text style={style.direction}>5</Text>
-          <FontAwesomeIcon icon={faVectorSquare} color={'grey'} />
-          <Text style={style.direction}>351 ft2</Text>
+          <FontAwesomeIcon icon={faBed} color={'#747783'} />
+          <Text style={style.details}>3</Text>
+          <FontAwesomeIcon icon={faBath} color={'#747783'} />
+          <Text style={style.details}>5</Text>
+          <FontAwesomeIcon icon={faVectorSquare} color={'#747783'} />
+          <Text style={style.details}>351 ft2</Text>
         </View>
-
-        <Text style={style.title}>This is a Card</Text>
+        <View style={style.priceView}>
+          <Text style={style.price}>$400/m</Text>
+          <FontAwesomeIcon icon={faHeartCirclePlus} color={'#00B074'} />
+        </View>
       </View>
     </View>
   );
@@ -55,6 +58,7 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 10,
     paddingVertical: 15,
+    alignItems: 'center',
   },
   calification: {
     color: '#7A6229',
@@ -75,22 +79,41 @@ const style = StyleSheet.create({
     color: '#151525',
     fontWeight: '600',
     fontFamily: 'Poppins-Regular',
+    fontSize: 18,
   },
   titleView: {
     paddingBottom: 5,
   },
   direction: {
     color: '#737373',
+    fontSize: 15,
+    paddingLeft: 8,
   },
   directionView: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  details: {
+    color: 'black',
+    fontSize: 15,
   },
   detailsView: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
     paddingTop: 5,
+  },
+  price: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
+  priceView: {
+    flexDirection: 'row',
+    paddingTop: 5,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   image: {
     width: 85,
@@ -99,6 +122,7 @@ const style = StyleSheet.create({
   },
   imageView: {
     borderRadius: 10,
+    marginLeft: 5,
   },
   infoSection: {
     paddingLeft: 20,
