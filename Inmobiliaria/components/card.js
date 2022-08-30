@@ -9,40 +9,40 @@ import {faBath} from '@fortawesome/free-solid-svg-icons/faBath';
 import {faVectorSquare} from '@fortawesome/free-solid-svg-icons/faVectorSquare';
 import {faHeartCirclePlus} from '@fortawesome/free-solid-svg-icons/faHeartCirclePlus';
 
-const Card = () => {
-  const img = {
-    uri: 'https://s3-alpha-sig.figma.com/img/51df/6e74/455e4e91f026bae88e5688a38ff59567?Expires=1662336000&Signature=aAXzR1J7Lus82vilSTL0vzAa7jpY0KKx-nE1bMF6zp5eJEy56in38tPBKuQZ~NXiwJjMvH-Szh5AM~BJxnpPV6gOGqg9Uwyy6cjSiRooTvUw2Vpz4PbuGlV5q~D9~jCSeXNbAmIzp5j~J6Ts5yizikFlcu-BN7t624BpRgzQeTYMF9wH6si8yXQremvREwUhr9T3o09eb5nnPZlEI1-~75vxVOKiD6GCoAt4f8NkMwvPe~GWZlRRUFaJ4VdUNCdW7VQ996GaDQLSuQVrmScv~dXaA~Q8gN4i8P5kbA5Ttb2QJ7KK08Vpvv~spMpIhRKpTwIFdknkqeN1oUY317eOLg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
-  };
+const Card = ({apartment}) => {
   return (
     <View style={style.container}>
-      <ImageBackground
-        source={img}
-        style={style.image}
-        imageStyle={style.imageView}>
-        <View style={style.calificationView}>
-          <FontAwesomeIcon icon={faStar} color={'#EEBA00'} />
-          <Text style={style.calification}>4.7</Text>
-        </View>
-      </ImageBackground>
-      <View style={style.infoSection}>
-        <View style={style.titleView}>
-          <Text style={style.title}>The Willows</Text>
-        </View>
-        <View style={style.directionView}>
-          <FontAwesomeIcon icon={faLocationDot} color={'black'} />
-          <Text style={style.direction}>3517 W. Gray St. Utica</Text>
-        </View>
-        <View style={style.detailsView}>
-          <FontAwesomeIcon icon={faBed} color={'#747783'} />
-          <Text style={style.details}>3</Text>
-          <FontAwesomeIcon icon={faBath} color={'#747783'} />
-          <Text style={style.details}>5</Text>
-          <FontAwesomeIcon icon={faVectorSquare} color={'#747783'} />
-          <Text style={style.details}>351 ft2</Text>
-        </View>
-        <View style={style.priceView}>
-          <Text style={style.price}>$400/m</Text>
-          <FontAwesomeIcon icon={faHeartCirclePlus} color={'#00B074'} />
+      <View style={style.cardView}>
+        <ImageBackground
+          source={{uri: apartment.img}}
+          style={style.image}
+          imageStyle={style.imageView}>
+          <View style={style.calificationView}>
+            <FontAwesomeIcon icon={faStar} color={'#EEBA00'} />
+            <Text style={style.calification}>{apartment.calification}</Text>
+          </View>
+        </ImageBackground>
+
+        <View style={style.infoSection}>
+          <View style={style.titleView}>
+            <Text style={style.title}>{apartment.title}</Text>
+          </View>
+          <View style={style.directionView}>
+            <FontAwesomeIcon icon={faLocationDot} color={'black'} />
+            <Text style={style.direction}>{apartment.location}</Text>
+          </View>
+          <View style={style.detailsView}>
+            <FontAwesomeIcon icon={faBed} color={'#747783'} />
+            <Text style={style.details}>{apartment.rooms}</Text>
+            <FontAwesomeIcon icon={faBath} color={'#747783'} />
+            <Text style={style.details}>{apartment.bathrooms}</Text>
+            <FontAwesomeIcon icon={faVectorSquare} color={'#747783'} />
+            <Text style={style.details}>{apartment.area}</Text>
+          </View>
+          <View style={style.priceView}>
+            <Text style={style.price}>{apartment.price}</Text>
+            <FontAwesomeIcon icon={faHeartCirclePlus} color={'#00B074'} />
+          </View>
         </View>
       </View>
     </View>
@@ -52,13 +52,18 @@ const Card = () => {
 const style = StyleSheet.create({
   container: {
     backgroundColor: '#F5FDFF',
-    width: '90%',
     marginTop: 20,
     borderRadius: 10,
     flexDirection: 'row',
     paddingHorizontal: 10,
     paddingVertical: 15,
     alignItems: 'center',
+    width: '100%',
+  },
+  cardView: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   calification: {
     color: '#7A6229',
@@ -92,7 +97,6 @@ const style = StyleSheet.create({
   directionView: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
   },
   details: {
     color: 'black',
@@ -101,7 +105,7 @@ const style = StyleSheet.create({
   detailsView: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     paddingTop: 5,
   },
   price: {
@@ -116,16 +120,15 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
   },
   image: {
-    width: 85,
-    height: 90,
+    width: 105,
+    height: 110,
     flexDirection: 'column-reverse',
   },
   imageView: {
     borderRadius: 10,
-    marginLeft: 5,
   },
   infoSection: {
-    paddingLeft: 20,
+    width: '60%',
   },
 });
 

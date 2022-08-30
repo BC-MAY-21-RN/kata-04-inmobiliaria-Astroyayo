@@ -8,22 +8,21 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Card} from './components/';
+import {CardList} from './components/';
+
+import * as data from './assets/data/data.json';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Card />
-      <Card />
-      <Card />
+      <CardList apartmentList={data.apartments} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E5E5E5',
-    flex: 6,
+    backgroundColor: '#FFFFFF',
     flexDirection: 'column',
     alignItems: 'center',
   },
